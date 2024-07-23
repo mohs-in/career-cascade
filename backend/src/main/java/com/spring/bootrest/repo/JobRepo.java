@@ -10,6 +10,6 @@ import com.spring.bootrest.model.JobPost;
 @Repository
 public interface JobRepo extends JpaRepository<JobPost, Integer> {
 
-    List<JobPost> findByPostProfileContainingOrPostDescContaining(String postProfile, String postDesc);
+    List<JobPost> findByPostProfileContaining(String postProfile);
 
 }
