@@ -1,10 +1,10 @@
 # Career Cascade 
 
-A full stack web application created using **Java Spring Boot** for the backend, __React__ for the frontend, __PostgreSQL__ for database management, and **Tailwind CSS** for styling. Admins can create, read, update, and delete job postings. Job seekers can browse and view detailed job openings.
+A full stack web application created using **Java Spring Boot** for the backend, __React__ for the frontend, __PostgreSQL__ for database management, and **Tailwind CSS** for styling. Admins can perform CRUD(create, read, update, and delete) operations on job postings. Job seekers can browse and view detailed job openings.
 
 ## Project Setup
 
-### Frontend code and Backend code are specified in seperate directories
+### Frontend and Backend code are specified in seperate directories
 
 ### For Frontend
 ### `npm install`
