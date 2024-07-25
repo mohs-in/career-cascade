@@ -5,13 +5,12 @@ import { useNavigate } from "react-router-dom";
 const initial = { postId:"",postProfile: "", reqExperience: '', postTechStack: [], postDesc:"" };
 
 export default function Create() {
-    const skillSet:{name:string}[] = [ {name: "Javascript"}, {name: "Java"}, {name: "Python"}, {name: "Django"}, {name: "Rust"} ];
+    const skillSet = [ {name: "Javascript"}, {name: "Java"}, {name: "Python"}, {name: "Django"}, {name: "Rust"} ];
     
     const navigate = useNavigate();
     const [form, setForm] = useState(initial);
     
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const handleSubmit = (e:any) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         axios
             .post("http://localhost:8080/jobPost",form)
@@ -26,7 +25,6 @@ export default function Create() {
     
     const { postId, postProfile, reqExperience, postDesc } = form;
     
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleChange = (e) => {
         setForm({...form , postTechStack : [...form.postTechStack, e.target.value]});
     }

@@ -9,7 +9,7 @@ import com.spring.bootrest.model.JobPost;
 import com.spring.bootrest.service.JobService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173" )
+@CrossOrigin(origins = "http://localhost:5173/")
 public class JobRestController {
 	
 	@Autowired

@@ -8,25 +8,25 @@ export default function AllPosts() {
     const [post, setPost] = useState(null);
     const navigate = useNavigate();
 
-    const handleEdit = (id : number) => {
+    const handleEdit = (id) => {
       navigate("/edit",{state:{id}});
     }
 
     useEffect(() => {
+        const fetchInitialPosts = async () => {
+            const response = await axios.get(`http://localhost:8080/jobPosts`);
+            setPost(response.data);
+        };
         const fetchPosts = async () => {
           const response = await axios.get(`http://localhost:8080/jobPosts/keyword/${query}`);    
           setPost(response.data);
         };
-        const fetchInitialPosts = async () => {
-            const response = await axios.get(`http://localhost:8080/jobPosts`);
-            setPost(response.data);
-        }
         fetchInitialPosts();
         if (query.length === 0) fetchInitialPosts();
         if (query.length > 2) fetchPosts();
     },[query]);
 
-    const handleDelete = (id : number) => {
+    const handleDelete = (id) => {
         async function deletePost() {
             await axios.delete(`http://localhost:8080/jobPost/${id}`);
         }
