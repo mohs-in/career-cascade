@@ -8,11 +8,11 @@
 		<version>3.2.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.telusko</groupId>
+	<groupId>career-cascade</groupId>
 	<artifactId>spring-boot-rest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-rest</name>
-	<description>Demo project for Spring Boot</description>
+	<description>A full stack web application created using Java Spring Boot for the backend, React for the frontend, PostgreSQL for database management, and Tailwind CSS for styling. Admins can create, read, update, and delete job postings. Job seekers can browse and view detailed job openings.</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
