@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-
+import Loading from './Loading'
 
 export default function AllPosts() {
     const [query, setQuery] = useState("");
-    const [post, setPost] = useState(null);
+    const [post, setPost] = useState(false);
     const navigate = useNavigate();
 
     const handleEdit = (id) => {
@@ -35,48 +35,49 @@ export default function AllPosts() {
     }
 
     return (
-        <div className="h-full pb-8">
-            <div className="flex flex-col items-center block">
+        <div className="">
+            <div className="flex flex-col items-center font-myfont1">
                 <input 
-                    className="w-[80%] sm:w-[60%] h-12 mt-8 mb-2 px-6 py-2 text-stone-900 border rounded-full"
+                    className="w-[80%] sm:w-[60%] h-12 mt-8 mb-2 px-6 py-2 text-stone-100 border-2 border-stone-700 
+                                    rounded-full shadow-lg bg-stone-900 rounded-full focus:outline-1 focus:outline-slate-950
+                                    focus:text-slate-100 focus:font-bold"
                     type="text"
-                    placeholder="Enter keyword..."
+                    placeholder="Search"
                     onChange={(e) => setQuery(e.target.value)}
                 />
             </div>
             <div className="m-6 sm:grid lg:grid-cols-3 sm:grid-cols-2">
+                { post ? console.log('posts rendered') : <Loading /> }
+                
                 { post &&
                     post.map((p) => {
                         return (
-                            <div key={p.id} className=" border border-stone-100 m-4 p-4 rounded-lg shadow-lg bg-stone-200">
-                                <h1 className="text-2xl text-stone-900 font-bold">{p.postProfile}</h1>
-                                <p className="mt-2"> <span className="font-semibold text-stone-800 ">Description:</span>  {p.postDesc}</p>
-                                <p className="mt-2"> <span className="font-semibold text-stone-800">Experience:</span> {p.reqExperience} years</p>
-                                <div className="flex mt-2">
-                                    <span className="font-semibold block text-stone-800">Skills : </span>
-                                    <div>   
+                            <div key={p.id} className=" border-b sm:border-r border-stone-600 m-4 p-4 rounded-lg shadow-4xl bg-transparent font-myfont2">
+                                <h1 className="text-2xl text-stone-100 font-bold">{p.postProfile}</h1>
+                                <p className="mt-2 text-stone-500"> <span className="font-semibold text-stone-300 ">Description:</span>  {p.postDesc}</p>
+                                <p className="mt-2 text-stone-500"> <span className="font-semibold text-stone-300">Experience:</span> {p.reqExperience} years</p>
+                                <p className="mt-2 font-semibold text-stone-300">Skills :</p>
+
+                                <div className="mt-2">
+                                    <div className="flex flex-wrap">   
                                     { p.postTechStack.map((s, i) => {
+                                        const id = parseInt(p.postId.toString() + i.toString())
                                         return (
-                                            <div key={i} className="px-1 text-black">
-                                            {s} 
-                                            {` `}
+                                            <div key={id} className="px-1 text-stone-500">
+                                            {`・`}{s} 
                                             </div>
                                         );
                                     })}
                                     </div>
-                                    
                                 </div>
-                                <div className="mt-2 flex flex-row">
-                                    <button className="ml-auto border border-stone-900 px-2 py-1 mr-2 bg-red-400 rounded-lg text-white" onClick={() => handleDelete(p.postId)}>Delete</button>
-                                    <button className="border border-stone-900 px-2 py-1 mr-2 bg-grey-400 rounded-lg text-grey-100" onClick={() => handleEdit(p.postId)}>Edit</button>
-                                </div>
-                                
+                                <div className="mt-4 flex flex-row">
+                                    <button className="border-b border-t border-stone-200 px-2 py-1 mr-2 bg-transparent rounded-lg text-stone-400 hover:text-rose-400 hover:border-rose-400 font-bold hover:font-normal" onClick={() => handleDelete(p.postId)}>Delete</button>
+                                    <button className="border-b border-t border-stone-200 px-2 py-1 mr-2 bg-transparent-400 rounded-lg text-stone-400 hover:text-blue-400 hover:border-blue-400 font-bold hover:font-normal" onClick={() => handleEdit(p.postId)}>Edit</button>
+                                </div>   
                             </div>
                         )
                     })
-
                 }
-
             </div>
         </div>
     )

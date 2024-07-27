@@ -30,31 +30,39 @@ export default function Create() {
     }
     
     return (
-        <div className=" m-auto flex flex-col items-center">
-            <div className="mt-8 text-2xl sm:text-4xl font-bold text-stone-100 tracking-wider ">Create New Post</div>
+        <div className=" m-auto flex flex-col items-center font-myfont1">
+            <div className="mt-8 text-2xl sm:text-4xl font-bold text-stone-100 tracking-tighter ">Create New Post</div>
             <form onSubmit={handleSubmit} className="flex flex-col mt-4 w-[90%] sm:w-[50%] text-stone-900">
                 <input type="text" 
-                    className="p-4 w-100% border rounded-lg m-4 "
+                    className="p-4 w-100% rounded-lg m-4 text-stone-100 border-2 border-stone-700 
+                                    shadow-lg bg-stone-900 rounded-full focus:outline-1 focus:outline-slate-950
+                                    focus:text-slate-100 focus:font-bold "
                     onChange={(e) => setForm({ ...form, postId: e.target.value })}
                     placeholder="Enter your Post ID"
                     value={postId} 
                 />
                 <input type="text"
-                    className="p-4 w-100% border rounded-lg m-4 " 
+                    className="p-4 w-100% rounded-lg m-4 text-stone-100 border-2 border-stone-700 
+                    shadow-lg bg-stone-900 rounded-full focus:outline-1 focus:outline-slate-950
+                    focus:text-slate-100 focus:font-bold "
                     required
                     onChange={(e) => setForm({ ...form, postProfile: e.target.value })}
                     placeholder="Job Profile"
                     value={postProfile}
                 />
                 <input type="text" 
-                    className="p-4 w-100% border rounded-lg m-4 "
+                    className="p-4 w-100% rounded-lg m-4 text-stone-100 border-2 border-stone-700 
+                    shadow-lg bg-stone-900 rounded-full focus:outline-1 focus:outline-slate-950
+                    focus:text-slate-100 focus:font-bold "
                     required
                     onChange={(e) => setForm({ ...form, reqExperience: e.target.value })}
                     placeholder="Years of Experience"
                     value={reqExperience}
                 />
                 <textarea
-                    className="p-4 w-100% border rounded-lg m-4 "
+                    className="p-4 w-100% rounded-lg m-4 text-stone-100 border-2 border-stone-700 
+                    shadow-lg bg-stone-900 rounded-full focus:outline-1 focus:outline-slate-950
+                    focus:text-slate-100 focus:font-bold "
                     required
                     rows={4}
                     onChange={(e) => setForm({ ...form, postDesc: e.target.value })}
@@ -80,7 +88,12 @@ export default function Create() {
                     );
                     })}
                 </ul>
-                <button className="mt-2 mb-6 px-4 py-2 bg-stone-700 w-[40%] sm:w-[30%] self-center rounded-full text-white uppercase text-sm font-semibold" type="submit">Submit</button>
+                <button className="
+                        mt-2 mb-6 px-4 py-2 bg-transparent w-[40%] sm:w-[30%] self-center rounded-full text-white 
+                        uppercase text-sm font-semibold border border-slate-100
+                        hover:bg-slate-100 hover:text-stone-900 tracking-widest"
+                         type="submit"
+                >Submit</button>
             </form>
         </div>
     )

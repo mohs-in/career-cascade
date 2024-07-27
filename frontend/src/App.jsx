@@ -7,7 +7,7 @@ import Layout from './components/Layout.jsx';
 function App() {
 
   return (
-    <div className="bg-stone-900">
+    <div className='font-montserrat'>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout/>}> 
