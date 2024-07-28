@@ -4,7 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import com.spring.bootrest.model.JobPost;
 import com.spring.bootrest.service.JobService;
 
@@ -14,6 +17,15 @@ public class JobRestController {
 	
 	@Autowired
 	private JobService service;
+
+	@GetMapping("/")
+	public ResponseEntity<Resource> getIndexHtml() {
+		Resource resource = new ClassPathResource("webapp/index.html");
+
+		return ResponseEntity.ok()
+				.header(HttpHeaders.CONTENT_TYPE, "text/html")
+				.body(resource);
+	}
 
 	@GetMapping("jobPosts")
 	public List<JobPost> getAllJobs() {
