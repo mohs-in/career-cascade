@@ -10,7 +10,7 @@ function App() {
     <div className='font-montserrat'>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Layout/>}> 
+          <Route path='/career-cascade' element={<Layout/>}> 
             <Route index element={<AllPosts />} />
             <Route path="create" element={<Create />} />
             <Route path="edit" element={<Edit />} />
