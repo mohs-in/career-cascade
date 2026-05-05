@@ -37,7 +37,7 @@
     "p-try": "^2.2.0",
     "path-exists": "^4.0.0",
     "path-type": "^4.0.0",
-    "picomatch": "^2.3.1",
+    "picomatch": "^2.3.2",
     "pkg-dir": "^4.2.0",
     "queue-microtask": "^1.2.3",
     "reusify": "^1.1.0",
