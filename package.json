@@ -33,7 +33,7 @@
     "merge2": "^1.4.1",
     "micromatch": "^4.0.8",
     "p-limit": "^2.3.0",
-    "p-locate": "^4.1.0",
+    "p-locate": "^7.0.0",
     "p-try": "^2.2.0",
     "path-exists": "^4.0.0",
     "path-type": "^4.0.0",
